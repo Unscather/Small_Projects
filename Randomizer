@@ -1,0 +1,30 @@
+import java.util.ArrayList;
+import java.util.Random;
+
+public class mainSelection
+{
+	public static void main(String[] args) {
+		ArrayList<String> userList = new ArrayList<String>(); //translated list of contenders for GoG bundle
+		String[] users = {"0", "1", "2", "3", "4"}; //list of contenders for GoG bundle, to be replaced with usernames
+		
+		for (int i = 0; i < users.length; i++) { //adds users to userList
+			userList.add(users[i]);
+		}
+		
+		Random r = new Random(); //calls upon random class
+		int index = 0; //initializes index for selecting position of userList
+		int counter = 1; //lists counter for loop
+		
+		System.out.println("FINAL: \n");
+		
+		//randomly selects contenders in list, giving top priority to those who are selected first
+		do {
+			index = r.nextInt(userList.size());
+			System.out.println(counter + ": " + userList.get(index));
+			userList.remove(index);
+			counter++;
+			
+		} while (!userList.isEmpty()); //runs until everyone is selected
+	}
+	
+}
